@@ -493,17 +493,6 @@
     "capital": "minor", 
     "population": "19877", 
     "population_proper": "19877"
-  }, 
-  {
-    "city": "Kuusankoski", 
-    "lat": "60.9083", 
-    "lng": "26.6236", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Kymenlaakso", 
-    "capital": "", 
-    "population": "19831", 
-    "population_proper": "19831"
   },
   {
     "city": "Heinola", 
@@ -812,18 +801,7 @@
     "capital": "minor", 
     "population": "10876", 
     "population_proper": "10876"
-  }, 
-  {
-    "city": "Nurmo", 
-    "lat": "62.8278", 
-    "lng": "22.9083", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Etelä-Pohjanmaa", 
-    "capital": "", 
-    "population": "10785", 
-    "population_proper": "10785"
-  }, 
+  },
   {
     "city": "Kivistö", 
     "lat": "60.3236", 
@@ -1252,18 +1230,7 @@
     "capital": "", 
     "population": "7415", 
     "population_proper": "7415"
-  }, 
-  {
-    "city": "Jämsänkoski", 
-    "lat": "61.9181", 
-    "lng": "25.1708", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Keski-Suomi", 
-    "capital": "", 
-    "population": "7351", 
-    "population_proper": "7351"
-  }, 
+  },
   {
     "city": "Tyrvää", 
     "lat": "61.3474", 
@@ -1527,18 +1494,7 @@
     "capital": "minor", 
     "population": "6068", 
     "population_proper": "6068"
-  }, 
-  {
-    "city": "Heinolan Maalaiskunta", 
-    "lat": "61.2500", 
-    "lng": "26.0667", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Päijät-Häme", 
-    "capital": "", 
-    "population": "6061", 
-    "population_proper": "6061"
-  }, 
+  },
   {
     "city": "Juva", 
     "lat": "61.9000", 
@@ -1560,18 +1516,7 @@
     "capital": "", 
     "population": "5903", 
     "population_proper": "5903"
-  }, 
-  {
-    "city": "Nakkila", 
-    "lat": "61.3647", 
-    "lng": "22.0056", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Satakunta", 
-    "capital": "minor", 
-    "population": "5651", 
-    "population_proper": "5651"
-  }, 
+  },
   {
     "city": "Kerimäki", 
     "lat": "61.9167", 
@@ -1737,17 +1682,6 @@
     "population": "5124", 
     "population_proper": "5124"
   },
-  {
-    "city": "Kellokoski", 
-    "lat": "60.5500", 
-    "lng": "25.1000", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Uusimaa", 
-    "capital": "", 
-    "population": "5000", 
-    "population_proper": "5000"
-  }, 
   {
     "city": "Korpilahti", 
     "lat": "62.0167", 
@@ -1947,17 +1881,6 @@
     "population_proper": "4368"
   },
   {
-    "city": "Vanhakylä", 
-    "lat": "61.4349", 
-    "lng": "21.8969", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Satakunta", 
-    "capital": "", 
-    "population": "4326", 
-    "population_proper": "4326"
-  }, 
-  {
     "city": "Ylitornio", 
     "lat": "66.3167", 
     "lng": "23.6667", 
@@ -2077,18 +2000,7 @@
     "capital": "", 
     "population": "3972", 
     "population_proper": "3972"
-  }, 
-  {
-    "city": "Aura", 
-    "lat": "60.6500", 
-    "lng": "22.5833", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Varsinais-Suomi", 
-    "capital": "minor", 
-    "population": "3961", 
-    "population_proper": "3961"
-  }, 
+  },
   {
     "city": "Hauho", 
     "lat": "61.1722", 
@@ -2110,18 +2022,7 @@
     "capital": "minor", 
     "population": "3893", 
     "population_proper": "3893"
-  }, 
-  {
-    "city": "Koria", 
-    "lat": "60.8333", 
-    "lng": "26.6000", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Kymenlaakso", 
-    "capital": "", 
-    "population": "3876", 
-    "population_proper": "3876"
-  }, 
+  },
   {
     "city": "Kolari", 
     "lat": "67.3306", 
@@ -2902,18 +2803,7 @@
     "capital": "minor", 
     "population": "2431", 
     "population_proper": "2431"
-  }, 
-  {
-    "city": "Karinainen", 
-    "lat": "60.6667", 
-    "lng": "22.7667", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Varsinais-Suomi", 
-    "capital": "", 
-    "population": "2425", 
-    "population_proper": "2425"
-  }, 
+  },
   {
     "city": "Ypäjä", 
     "lat": "60.8083", 
@@ -3111,18 +3001,7 @@
     "capital": "minor", 
     "population": "2094", 
     "population_proper": "2094"
-  }, 
-  {
-    "city": "Miehikkälä", 
-    "lat": "60.6667", 
-    "lng": "27.7000", 
-    "country": "Finland", 
-    "iso2": "FI", 
-    "admin_name": "Kymenlaakso", 
-    "capital": "minor", 
-    "population": "2085", 
-    "population_proper": "2085"
-  }, 
+  },
   {
     "city": "Lumijoki", 
     "lat": "64.8367", 
@@ -3633,6 +3512,14 @@
     "city": "Vuotso", 
     "lat": "68.1022", 
     "lng": "27.1201", 
+    "country": "Finland", 
+    "iso2": "FI",
+    "admin_name": "Lappi"
+  },
+  {
+    "city": "Pokka", 
+    "lat": "68.1585", 
+    "lng": "25.7723", 
     "country": "Finland", 
     "iso2": "FI",
     "admin_name": "Lappi"

@@ -20,9 +20,9 @@ async function updateMap() {
 
   const heatPoints = tempData.map(({ lat, lng, temp }) => [lat, lng, temp]);
 
-  const heatLayer = L.heatLayer(heatPoints, {
-    radius: 60,
-    blur: 100,
+  L.heatLayer(heatPoints, {
+    radius: 30,
+    blur: 50,
     maxZoom: 19,
     gradient: {
       0.0: "#264CFF",
@@ -39,43 +39,10 @@ async function updateMap() {
     }
   }).addTo(map);
 
-  async function fetchTempData(cities) {
-    const tempData = [];
-
-    for (const city of cities) {
-      const { lat, lng } = city;
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${api}`;
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        if (data.main && data.coord) {
-          tempData.push({
-            lat: data.coord.lat,
-            lng: data.coord.lon,
-            temp: data.main.temp,
-            name: city.city,
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching weather data: ", error);
-      }
-    }
-    return tempData;
-  }
-
-  function tempColor(temp) {
-    if (temp <= 0) return "#264CFF";
-    else if (temp > 0 && temp <= 10) return "#3FA0FF";
-    else if (temp > 10 && temp <= 20) return "#72D8FF";
-    else if (temp > 20 && temp <= 30) return "#FFFFBF";
-    else return "#A50021";
-  }
-
-  // Function to show the name of the city and temperature when hovering your cursor over it.
   tempData.forEach(({ lat, lng, temp, name }) => {
     const color = tempColor(temp);
     const marker = L.circleMarker([lat, lng], {
-      radius: 3,
+      radius: 4,
       color: color,
       fillColor: color,
       fillOpacity: 1,
@@ -92,6 +59,86 @@ async function updateMap() {
   });
 }
 
+async function fetchTempData(cities) {
+  const tempData = [];
+  for (const city of cities) {
+    const { lat, lng } = city;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${api}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.main && data.coord) {
+        tempData.push({
+          lat: data.coord.lat,
+          lng: data.coord.lon,
+          temp: data.main.temp,
+          name: city.city,
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching weather data: ", error);
+    }
+  }
+  return tempData;
+}
+
+function tempColor(temp) {
+  if (temp <= 0) return "#264CFF";
+  else if (temp > 0 && temp <= 10) return "#3FA0FF";
+  else if (temp > 10 && temp <= 15) return "#72D8FF";
+  else if (temp > 15 && temp <= 20) return "#FCCF03";
+  else if (temp > 20 && temp <= 30) return "#FC982D";
+  else return "#A50021";
+}
+
+document.getElementById('weatherBtn').addEventListener('click', async () => {
+  const userCity = document.getElementById('userCity').value.trim();
+
+  if (userCity === '') {
+    alert('Kaupunkia ei löydy!');
+    return;
+  }
+
+  const cityWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${api}&units=metric`;
+
+  try {
+    const response = await fetch(cityWeatherUrl);
+    const data = await response.json();
+    const cityWeatherResult = document.getElementById('cityWeatherResult');
+
+    if (data.cod === 200) {
+      const temp = data.main.temp;
+      const {lat, lon} = data.coord;
+
+      cityWeatherResult.textContent = `Temperature in ${userCity}: ${temp}°C`;
+
+      const color = tempColor(temp);
+      const marker = L.circleMarker([lat, lon], {
+        radius: 4,
+        color: color,
+        fillColor: color,
+        fillOpacity: 1,
+      }).addTo(map);
+
+      marker.bindPopup(`Temperature in ${userCity}: ${temp}°C`);
+
+      marker.on("mouseover", function () {
+        this.openPopup();
+      });
+      marker.on("mouseout", function () {
+        this.closePopup();
+      });
+
+      map.setView([lat, lon], 15);
+
+    } else {
+      cityWeatherResult.textContent = `Kaupungin tietoja ei löytynyt.`;
+    }
+  } catch (error) {
+    console.error("Error fetching weather data: ", error);
+  }
+});
+
 function updateClock() {
   const now = new Date();
   const hours = String(now.getHours()).padStart(2, "0");
@@ -107,31 +154,6 @@ function updateClock() {
   document.getElementById("clock").textContent = timeString;
   document.getElementById("dateDisplay").textContent = dateString;
 }
-
-document.getElementById('weatherBtn').addEventListener('click', () =>{
-  const userCity = document.getElementById('userCity').value;
-
-  if (userCity === ''){
-    alert('Kaupunkia ei löydy!');
-    return;
-  }
-
-  const cityWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${api}&units=metric`;
-
-  fetch(cityWeatherUrl).then(response => {
-    return response.json();
-  }).then(data =>{
-    const cityWeatherResult = document.getElementById('cityWeatherResult');
-    if(data.cod === 200){
-      const temp = data.main.temp;
-      cityWeatherResult.textContent = `Temperature in ${userCity}: ${temp}°C`;
-    } else {
-      cityWeatherResult.textContent = `Kaupungin tietoja ei löytynyt.`;
-    }
-  }).catch (error => {
-    console.error("Error fetching weather data: ", error);
-  });
-});
 
 updateClock();
 setInterval(updateClock, 1000);
