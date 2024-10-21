@@ -64,26 +64,26 @@ async function updateMap() {
 }
 
 async function fetchTempData(cities) {
-  const tempData = [];
-  for (const city of cities) {
+  const promises = cities.map(async(city) => {
     const { lat, lng } = city;
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${api}`;
     try {
       const response = await fetch(url);
       const data = await response.json();
       if (data.main && data.coord) {
-        tempData.push({
+        return {
           lat: data.coord.lat,
           lng: data.coord.lon,
           temp: data.main.temp,
           name: city.city,
-        });
+        };
       }
     } catch (error) {
       console.error("Error fetching weather data: ", error);
     }
-  }
-  return tempData;
+  });
+  const tempData = await Promise.all(promises);
+  return tempData.filter(item => item !== undefined);
 }
 
 function tempColor(temp) {
