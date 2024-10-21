@@ -14,6 +14,10 @@ async function fetchCities() {
   return cities;
 }
 
+/* 
+Funktio lisää cities.json löytyviin kaupunkeihin pallurat ja 
+väri tulee niiden lämpötilojen mukaan
+*/
 async function updateMap() {
   const cities = await fetchCities();
   const tempData = await fetchTempData(cities);
@@ -91,6 +95,7 @@ function tempColor(temp) {
   else return "#A50021";
 }
 
+// Lisää palluran käyttäjän antamaan kaupunkiin
 document.getElementById('weatherBtn').addEventListener('click', async () => {
   const userCity = document.getElementById('userCity').value.trim();
 
@@ -129,7 +134,7 @@ document.getElementById('weatherBtn').addEventListener('click', async () => {
         this.closePopup();
       });
 
-      map.setView([lat, lon], 15);
+      map.setView([lat, lon], 10);
 
     } else {
       cityWeatherResult.textContent = `Kaupungin tietoja ei löytynyt.`;
@@ -139,6 +144,7 @@ document.getElementById('weatherBtn').addEventListener('click', async () => {
   }
 });
 
+// Kello ja päivämäärä
 function updateClock() {
   const now = new Date();
   const hours = String(now.getHours()).padStart(2, "0");
