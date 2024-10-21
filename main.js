@@ -48,7 +48,7 @@ async function updateMap() {
       fillOpacity: 1,
     }).addTo(map);
 
-    marker.bindPopup(`Temperature in ${name}: ${temp}°C`);
+    marker.bindPopup(`Lämpötila kaupungissa ${name}: ${temp}°C`);
 
     marker.on("mouseover", function (e) {
       this.openPopup();
@@ -110,7 +110,7 @@ document.getElementById('weatherBtn').addEventListener('click', async () => {
       const temp = data.main.temp;
       const {lat, lon} = data.coord;
 
-      cityWeatherResult.textContent = `Temperature in ${userCity}: ${temp}°C`;
+      cityWeatherResult.textContent = `Lämpötila kaupungissa ${userCity}: ${temp}°C`;
 
       const color = tempColor(temp);
       const marker = L.circleMarker([lat, lon], {
@@ -120,7 +120,7 @@ document.getElementById('weatherBtn').addEventListener('click', async () => {
         fillOpacity: 1,
       }).addTo(map);
 
-      marker.bindPopup(`Temperature in ${userCity}: ${temp}°C`);
+      marker.bindPopup(`Lämpötila kaupungissa ${userCity}: ${temp}°C`);
 
       marker.on("mouseover", function () {
         this.openPopup();
