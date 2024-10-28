@@ -1,6 +1,6 @@
 # webProject
 
-[Linkki sivuille.](https://hipparkos.github.io/) Sivu latautuu noin 20 sekunnissa, odotathan :)
+[Linkki sivuille.](https://hipparkos.github.io/)
 
 
 ### Arvostelu:
